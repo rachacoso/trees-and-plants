@@ -1,4 +1,25 @@
+<% content_for :title do %>
+TREE CATALOG
+<% end %>
+
+<div class="small-10 columns centered">
 <h1>Home#front</h1>
 <p>Find me in app/views/home/front.html.erb</p>
 
-<%= @plant.genus %>
+<i><%= @plant.genus %> <%= @plant.species %></i> <%= @plant.common_name %> 
+<% @plant.colors.each do |color| %>
+Color: <%= color.color %>
+<% end %>
+
+<ul>
+<% @colors.each do |color| %>
+	<li><%= color.color %></li>
+<% end %>
+</ul>
+
+<%= @test.first.id %>
+
+
+
+</div><!--/.small-10-->
+

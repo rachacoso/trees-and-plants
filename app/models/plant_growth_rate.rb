@@ -1,3 +1,3 @@
 class PlantGrowthRate < ApplicationRecord
-  belongs_to :rate_id
+  belongs_to :growth_rate
 end

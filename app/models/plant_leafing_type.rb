@@ -1,4 +1,4 @@
 class PlantLeafingType < ApplicationRecord
-  belongs_to :leafing_type_id
-  belongs_to :plant_id
+  belongs_to :leafing_type
+  belongs_to :plant
 end

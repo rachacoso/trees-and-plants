@@ -37,48 +37,50 @@ ActiveRecord::Schema.define(version: 2018_10_05_195302) do
   end
 
   create_table "plant_adjectives", force: :cascade do |t|
-    t.integer "adjective_id_id"
-    t.integer "plant_id_id"
+    t.integer "adjective_id"
+    t.integer "plant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["adjective_id_id"], name: "index_plant_adjectives_on_adjective_id_id"
-    t.index ["plant_id_id"], name: "index_plant_adjectives_on_plant_id_id"
+    t.index ["adjective_id"], name: "index_plant_adjectives_on_adjective_id"
+    t.index ["plant_id"], name: "index_plant_adjectives_on_plant_id"
   end
 
   create_table "plant_colors", force: :cascade do |t|
-    t.integer "color_id_id"
-    t.integer "plant_id_id"
+    t.integer "color_id"
+    t.integer "plant_id"
     t.integer "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["color_id_id"], name: "index_plant_colors_on_color_id_id"
-    t.index ["plant_id_id"], name: "index_plant_colors_on_plant_id_id"
+    t.index ["color_id"], name: "index_plant_colors_on_color_id"
+    t.index ["plant_id"], name: "index_plant_colors_on_plant_id"
   end
 
   create_table "plant_growth_rates", force: :cascade do |t|
-    t.integer "rate_id_id"
+    t.integer "growth_rate_id"
+    t.integer "plant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rate_id_id"], name: "index_plant_growth_rates_on_rate_id_id"
+    t.index ["growth_rate_id"], name: "index_plant_growth_rates_on_growth_rate_id"
+    t.index ["plant_id"], name: "index_plant_growth_rates_on_plant_id"
   end
 
   create_table "plant_leafing_types", force: :cascade do |t|
-    t.integer "leafing_type_id_id"
-    t.integer "plant_id_id"
+    t.integer "leafing_type_id"
+    t.integer "plant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["leafing_type_id_id"], name: "index_plant_leafing_types_on_leafing_type_id_id"
-    t.index ["plant_id_id"], name: "index_plant_leafing_types_on_plant_id_id"
+    t.index ["leafing_type_id"], name: "index_plant_leafing_types_on_leafing_type_id"
+    t.index ["plant_id"], name: "index_plant_leafing_types_on_plant_id"
   end
 
   create_table "plant_textures", force: :cascade do |t|
-    t.integer "texture_id_id"
-    t.integer "plant_id_id"
+    t.integer "texture_id"
+    t.integer "plant_id"
     t.text "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plant_id_id"], name: "index_plant_textures_on_plant_id_id"
-    t.index ["texture_id_id"], name: "index_plant_textures_on_texture_id_id"
+    t.index ["plant_id"], name: "index_plant_textures_on_plant_id"
+    t.index ["texture_id"], name: "index_plant_textures_on_texture_id"
   end
 
   create_table "plants", force: :cascade do |t|

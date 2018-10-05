@@ -1,4 +1,4 @@
 class PlantColor < ApplicationRecord
-  belongs_to :color_id
-  belongs_to :plant_id
+  belongs_to :color
+  belongs_to :plant
 end
