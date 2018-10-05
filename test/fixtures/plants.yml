@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genus: MyString
+  species: MyString
+  common_name: MyString
+  tree: false
+  shrub: false
+  leafing_type: MyString
+  fruits: false
+  ca_native: false
+  height_min: 1
+  height_max: 1
+  width_min: 1
+  width_max: 1
+
+two:
+  genus: MyString
+  species: MyString
+  common_name: MyString
+  tree: false
+  shrub: false
+  leafing_type: MyString
+  fruits: false
+  ca_native: false
+  height_min: 1
+  height_max: 1
+  width_min: 1
+  width_max: 1

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color_id: one
+  plant_id: one
+  rank: 1
+
+two:
+  color_id: two
+  plant_id: two
+  rank: 1

@@ -1,0 +1,2 @@
+class LeafingType < ApplicationRecord
+end

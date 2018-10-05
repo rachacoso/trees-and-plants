@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  texture_id: one
+  plant_id: one
+  type: MyText
+
+two:
+  texture_id: two
+  plant_id: two
+  type: MyText
