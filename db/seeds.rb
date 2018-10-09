@@ -6,18 +6,55 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-colors = ["yellow", "green", "green (pale-green)", "green (medium-green)", "green (dark-green)", "green (blue-green)", "green (gray-green)", "red", "brown", "brown (yellow-brown)", "purple", "gray", "white"]
-colors.each do |color|
-	Color.create( color: color )
+
+def add_color(color,color_type)
+	Color.create( color: color, color_type: color_type )
 end
+
+leaf_growth_colors = ["Green", "Green (Blue-Green)", "Green (Gray-Green)", "Bronze", "Purple", "Red", "Lavender", "Pink", "Orange", "Yellow", "Silver", "Silver(Silver-Gray)", "White", "Variegated"]
+leaf_growth_colors.each do |color|
+	add_color(color,"Leaf (Growth)")
+end
+leaf_autumn_colors = ["Bronze", "Red", "Gold", "Orange", "Purple", "Multicolored", "No Change"]
+leaf_autumn_colors.each do |color|
+	add_color(color,"Leaf (Autumn)")
+end
+bark_colors = ["Black", "Brown", "Bronze", "Cream", "Brown (Dark Brown)", "Gray (Dark Gray)", "Green", "Green (Light Green)", "Gray", "Gray (Light Gray)", "Orange", "Pink", "Purple", "Brown (Red Brown)", "Multicolored"]
+bark_colors.each do |color|
+	add_color(color,"Bark")
+end
+flower_colors = ["Blue", "Brown", "Chartreuse", "Cream", "Gray", "Green", "Lavender", "Maroon", "Orange", "Peach", "Pink", "Purple", "Red", "Rose", "White", "Yellow"]
+flower_colors.each do |color|
+	add_color(color,"Flower")
+end
+fruit_colors = ["Beige", "Black", "Mostly Blue", "Blue Green", "Mostly Green", "Brown", "Chartreuse", "Gray", "Lavender", "Orange", "Pink", "Purple", "Red", "Rose", "White", "Yellow"]
+fruit_colors.each do |color|
+	add_color(color,"Fruit")
+end
+
+leafing_types = ["Evergreen", "Deciduous", "Semi-Evergreen", "Semi-Deciduous"]
+leafing_types.each do |lt|
+	LeafingType.create( leafing_type: lt )
+end
+growth_rates = ["Fast", "Moderate", "Slow"]
+growth_rates.each do |gr|
+	GrowthRate.create( growth_rate: gr )
+end
+textures = ["Blocky", "Exfoliating", "Fibrous", "Furrowed", "Ridged", "Rough", "Scaly", "Smooth", "Spiny", "Striated"]
+textures.each do |t|
+	Texture.create( texture: t )
+end
+adjectives = []
 
 plant = Plant.create( genus: 'Afrocarpus', species: 'falcatus', common_name: 'Fern Pine', leafing_type: 'Evergreen', height_min: 60, width_min: 45, ca_native: true)
-colors = ["green (blue-green)","green (gray-green)","green (dark-green)"]
-colors.each do |color|
-	plant_color = Color.where(color: color).first
+plant_leaf_growth_colors = ["Green (Blue-Green)","Green (Gray-Green)","Green"]
+plant_leaf_growth_colors.each do |color|
+	plant_color = Color.leaf_growth.where(color: color).first
 	plant.colors << plant_color
 end
-
-
-# plant.save!
+plant_bark_colors = ["Gray","Brown"]
+plant_bark_colors.each do |color|
+	plant_color = Color.bark.where(color: color).first
+	plant.colors << plant_color
+end
 
