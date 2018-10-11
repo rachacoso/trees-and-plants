@@ -27,7 +27,7 @@ flower_colors = ["Blue", "Brown", "Chartreuse", "Cream", "Gray", "Green", "Laven
 flower_colors.each do |color|
 	add_color(color,"Flower")
 end
-fruit_colors = ["Beige", "Black", "Mostly Blue", "Blue Green", "Mostly Green", "Brown", "Chartreuse", "Gray", "Lavender", "Orange", "Pink", "Purple", "Red", "Rose", "White", "Yellow"]
+fruit_colors = ["Beige", "Black", "Blue", "Blue Green", "Green", "Brown", "Chartreuse", "Gray", "Lavender", "Orange", "Pink", "Purple", "Red", "Rose", "White", "Yellow"]
 fruit_colors.each do |color|
 	add_color(color,"Fruit")
 end

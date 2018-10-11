@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_194915) do
     t.string "leafing_type"
     t.boolean "fruits"
     t.boolean "ca_native"
+    t.boolean "problematic"
     t.integer "height_min"
     t.integer "height_max"
     t.integer "width_min"

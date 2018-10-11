@@ -9,6 +9,7 @@ class CreatePlants < ActiveRecord::Migration[5.2]
       t.string :leafing_type
       t.boolean :fruits
       t.boolean :ca_native
+      t.boolean :problematic
       t.integer :height_min
       t.integer :height_max
       t.integer :width_min

@@ -57,17 +57,30 @@
 		</div><!--/.large-4-->	
 	</div><!--/.row-->
 	<div class="row">
-		<div class="large-12 columns">
-			<h2>California Native</h2>
+		<div class="small-12 columns">
+			<h2>Miscellaneous</h2>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="large-4 columns">
 			<%= f.check_box :ca_native, label: false %>
-			<%= label_tag(:plant_ca_native, "California Native") %>
+			<%= label_tag(:plant_ca_native, "Is a California Native") %>
+		</div><!--/.large-4-->
+		<div class="large-4 columns">
+			<%= f.check_box :fruits, label: false %>
+			<%= label_tag(:plant_fruits, "Has Fruits") %>
+		</div><!--/.large-4-->
+		<div class="large-4 columns">
+			<%= f.check_box :problematic, label: false %>
+			<%= label_tag(:plant_problematic, "May Be Problematic") %>
 		</div><!--/.large-4-->		
 	</div><!--/.row-->
 	<div class="row">
 		<div class="small-12 columns">
 			<h2>Growth Rate</h2>
 			<% @growth_rates.each do |growth_rate| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'growth_rate', value: "#{growth_rate.id}", label: "#{growth_rate.growth_rate}" } %>
+			  <%= check_box_tag "plant[growth_rate_ids][]", growth_rate.id, @plant.growth_rate_ids.include?(growth_rate.id), id: "plant_growth_rate_ids_#{growth_rate.id}" %>
+			  <%= label_tag("plant_growth_rate_ids_#{growth_rate.id}", growth_rate.growth_rate ) %>
 			<% end %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
@@ -75,47 +88,53 @@
 		<div class="small-12 columns">
 			<h2>Leafing Type</h2>
 			<% @leafing_types.each do |leafing_type| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'leafing_type', value: "#{leafing_type.id}", label: "#{leafing_type.leafing_type}" } %>
+			  <%= check_box_tag "plant[leafing_type_ids][]", leafing_type.id, @plant.leafing_type_ids.include?(leafing_type.id), id: "plant_leafing_type_ids_#{leafing_type.id}" %>
+			  <%= label_tag("plant_leafing_type_ids_#{leafing_type.id}", leafing_type.leafing_type ) %>
 			<% end %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 	<div class="row">
 		<div class="small-12 columns">
 			<h2>Color - Leaf (Growth)</h2>
-			<% @color_leaf_growth.each do |color| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% @colors_leaf_growth.each do |color| %>
+			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
+			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
 			<% end %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 		<div class="row">
 		<div class="small-12 columns">
 			<h2>Color - Leaf (Autumn)</h2>
-			<% @color_leaf_autumn.each do |color| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% @colors_leaf_autumn.each do |color| %>
+			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
+			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
 			<% end %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 	<div class="row">
 		<div class="small-12 columns">
 			<h2>Color - Bark</h2>
-			<% @color_bark.each do |color| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% @colors_bark.each do |color| %>
+			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
+			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
 			<% end %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 	<div class="row">
 		<div class="small-12 columns">
 			<h2>Color - Flower</h2>
-			<% @color_flower.each do |color| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% @colors_flower.each do |color| %>
+			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
+			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
 			<% end %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 	<div class="row">
 		<div class="small-12 columns">
 			<h2>Color - Fruit</h2>
-			<% @color_fruit.each do |color| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% @colors_fruit.each do |color| %>
+			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
+			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
 			<% end %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
@@ -123,7 +142,8 @@
 		<div class="small-12 columns">
 			<h2>Textures</h2>
 			<% @textures.each do |texture| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'texture', value: "#{texture.id}", label: "#{texture.texture}" } %>
+			  <%= check_box_tag "plant[texture_ids][]", texture.id, @plant.texture_ids.include?(texture.id), id: "plant_texture_ids_#{texture.id}" %>
+			  <%= label_tag("plant_texture_ids_#{texture.id}", texture.texture ) %>
 			<% end %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
@@ -131,8 +151,18 @@
 		<div class="small-12 columns">
 			<h2>Adjectives</h2>
 			<% @adjectives.each do |adjective| %>
-			<%= render partial: 'shared/checkbox', locals: {property: 'adjective', value: "#{adjective.id}", label: "#{adjective.adjective}" } %>
+			  <%= check_box_tag "plant[adjective_ids][]", adjective.id, @plant.adjective_ids.include?(adjective.id), id: "plant_adjective_ids_#{adjective.id}" %>
+			  <%= label_tag("plant_adjective_ids_#{adjective.id}", adjective.adjective ) %>
 			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+
+
+	<div class="row">
+		<div class="small-12 columns">
+			<br>
+			<%= f.submit %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 	<div class="row">
