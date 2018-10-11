@@ -44,9 +44,12 @@ textures = ["Blocky", "Exfoliating", "Fibrous", "Furrowed", "Ridged", "Rough", "
 textures.each do |t|
 	Texture.create( texture: t )
 end
-adjectives = []
+adjectives = ["Majestic", "Magical", "Scrubby", "Mysterious", "Regal", "Fantastical", "Homey", "Shady", "Spindly", "Gnarled", "Wispy", "Magnetic", "Luxurious", "Pedestrian"]
+adjectives.each do |a|
+	Adjective.create( adjective: a )
+end
 
-plant = Plant.create( genus: 'Afrocarpus', species: 'falcatus', common_name: 'Fern Pine', leafing_type: 'Evergreen', height_min: 60, width_min: 45, ca_native: true)
+plant = Plant.create( genus: 'Afrocarpus', species: 'falcatus', common_name: 'Fern Pine', leafing_type: 'Evergreen', height_min: 60, width_min: 45, ca_native: true, tree: true)
 plant_leaf_growth_colors = ["Green (Blue-Green)","Green (Gray-Green)","Green"]
 plant_leaf_growth_colors.each do |color|
 	plant_color = Color.leaf_growth.where(color: color).first

@@ -1,0 +1,146 @@
+
+<div class="row">
+	<div class="small-10 small-centered columns">
+		<h1 id="scientific-name"><%=@plant.genus%> <%=@plant.species%></h1>
+		<h1 id="common-name"><%=@plant.common_name%></h1>
+	</div><!--/.small-10 small-centered-->
+</div><!--/.row-->
+
+<%= form_for @plant, url: edit_plant_url do |f| %>
+<div class="row">
+<div class="small-10 small-centered columns">
+	<div class="row">
+		<div class="large-4 columns">
+			<label>
+				<i><%= label_tag(:plant_genus, "Genus") %></i>
+				<%= f.text_field :genus, placeholder: 'Genus', required: "required", label: false %>
+			</label>
+		</div><!--/.large-4-->
+		<div class="large-4 columns">
+			<i><%= label_tag(:plant_species, "species") %></i>
+			<%= f.text_field :species, placeholder: 'species', required: "required", label: false %>
+		</div><!--/.large-4-->
+		<div class="large-4 columns">
+			<%= label_tag(:plant_common_name, "Common Name") %>
+			<%= f.text_field :common_name, placeholder: 'Common Name', required: "required", label: false %>
+		</div><!--/.large-4-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="large-6 columns">
+		<%= label_tag(:plant_width_min, "Width (Minimum)") %>
+		<%= f.number_field :width_min, placeholder: 'Width (Min)', label: false %>
+		<%= label_tag(:plant_width_max, "Width (Maximum)") %>
+		<%= f.number_field :width_max, placeholder: 'Width (Max)', label: false %>
+		</div><!--/.large-6-->
+		<div class="large-6 columns">
+		<%= label_tag(:plant_height_min, "Height (Min)") %>
+		<%= f.number_field :height_min, placeholder: 'Height (Min)', label: false %>
+		<%= label_tag(:plant_height_max, "Height (Max)") %>
+		<%= f.number_field :height_max, placeholder: 'Height (Max)', label: false %>
+		</div><!--/.large-6-->
+
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Plant Type</h2>			
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="large-6 columns">
+
+			<%= f.check_box :tree, label: false %>
+			<%= label_tag(:plant_tree, "Tree") %>
+		</div><!--/.large-4-->
+		<div class="large-6 columns">
+			<%= f.check_box :shrub, label: false %>
+			<%= label_tag(:plant_shrub, "Shrub") %>
+		</div><!--/.large-4-->	
+	</div><!--/.row-->
+	<div class="row">
+		<div class="large-12 columns">
+			<h2>California Native</h2>
+			<%= f.check_box :ca_native, label: false %>
+			<%= label_tag(:plant_ca_native, "California Native") %>
+		</div><!--/.large-4-->		
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Growth Rate</h2>
+			<% @growth_rates.each do |growth_rate| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'growth_rate', value: "#{growth_rate.id}", label: "#{growth_rate.growth_rate}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Leafing Type</h2>
+			<% @leafing_types.each do |leafing_type| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'leafing_type', value: "#{leafing_type.id}", label: "#{leafing_type.leafing_type}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Color - Leaf (Growth)</h2>
+			<% @color_leaf_growth.each do |color| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+		<div class="row">
+		<div class="small-12 columns">
+			<h2>Color - Leaf (Autumn)</h2>
+			<% @color_leaf_autumn.each do |color| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Color - Bark</h2>
+			<% @color_bark.each do |color| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Color - Flower</h2>
+			<% @color_flower.each do |color| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Color - Fruit</h2>
+			<% @color_fruit.each do |color| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'color', value: "#{color.id}", label: "#{color.color}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Textures</h2>
+			<% @textures.each do |texture| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'texture', value: "#{texture.id}", label: "#{texture.texture}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Adjectives</h2>
+			<% @adjectives.each do |adjective| %>
+			<%= render partial: 'shared/checkbox', locals: {property: 'adjective', value: "#{adjective.id}", label: "#{adjective.adjective}" } %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Images</h2>
+			<%= image_tag '/images/image_add.svg' %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+</div><!--/.small-12-->
+</div><!--/.row-->
+<% end %>

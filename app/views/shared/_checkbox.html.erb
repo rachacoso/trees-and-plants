@@ -1,0 +1,3 @@
+<%= hidden_field_tag "#{property}[#{value}]", false, id: "#{property}_#{value}_neg" %>
+<%= check_box_tag "#{property}[#{value}]", true, (@plant.check_property(property, value) rescue false) ? true : false %>
+<%= label_tag("#{property}[#{value}]", label) %>
