@@ -1,7 +1,7 @@
 
 <div class="row">
 	<div class="small-10 small-centered columns">
-		<h1 id="scientific-name"><%=@plant.genus%> <%=@plant.species%></h1>
+		<%= link_to show_plant_url(@plant) do %><h1 id="scientific-name"><%=@plant.genus%> <%=@plant.species%></h1><% end %>
 		<h1 id="common-name"><%=@plant.common_name%></h1>
 	</div><!--/.small-10 small-centered-->
 </div><!--/.row-->
@@ -38,7 +38,12 @@
 		<%= label_tag(:plant_height_max, "Height (Max)") %>
 		<%= f.number_field :height_max, placeholder: 'Height (Max)', label: false %>
 		</div><!--/.large-6-->
-
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<%= label_tag(:plant_description, "Description") %>
+			<%= f.text_area :description, rows: 4, placeholder: "Description", label: false %>
+		</div><!--/.small-12-->
 	</div><!--/.row-->
 	<div class="row">
 		<div class="small-12 columns">
@@ -158,6 +163,40 @@
 	</div><!--/.row-->
 
 
+	<div class="row">
+		<div class="small-12 medium-3 columns">
+			<h2>Featured Images</h2>
+			<% @plant.images.featured.with_attached_file.each do |image| %>
+				<%= image_tag url_for(image.file) %>
+			<% end %>
+			<%= f.file_field :images_featured %>
+			<%= image_tag '/images/image_add.svg' %>
+		</div><!--/.small-12 medium-3-->
+		<div class="small-12 medium-3 columns">
+			<h2>Whole Plant Images</h2>
+			<% @plant.images.whole.with_attached_file.each do |image| %>
+				<%= image_tag url_for(image.file) %>
+			<% end %>
+			<%= f.file_field :images_whole %>
+			<%= image_tag '/images/image_add.svg' %>
+		</div><!--/.small-12 medium-3-->
+		<div class="small-12 medium-3 columns">
+			<h2>Close Up Images</h2>
+			<% @plant.images.closeup.with_attached_file.each do |image| %>
+				<%= image_tag url_for(image.file) %>
+			<% end %>
+			<%= f.file_field :images_closeup %>
+			<%= image_tag '/images/image_add.svg' %>
+		</div><!--/.small-12 medium-3-->
+		<div class="small-12 medium-3 columns">
+			<h2>Wide Shot Images</h2>
+			<% @plant.images.wide.with_attached_file.each do |image| %>
+				<%= image_tag url_for(image.file) %>
+			<% end %>
+			<%= f.file_field :images_wide %>
+			<%= image_tag '/images/image_add.svg' %>
+		</div><!--/.small-12 medium-3-->
+	</div><!--/.row-->
 
 	<div class="row">
 		<div class="small-12 columns">
@@ -165,12 +204,7 @@
 			<%= f.submit %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
-	<div class="row">
-		<div class="small-12 columns">
-			<h2>Images</h2>
-			<%= image_tag '/images/image_add.svg' %>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
+
 </div><!--/.small-12-->
 </div><!--/.row-->
 <% end %>

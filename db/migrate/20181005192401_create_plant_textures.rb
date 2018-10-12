@@ -3,7 +3,7 @@ class CreatePlantTextures < ActiveRecord::Migration[5.2]
     create_table :plant_textures do |t|
       t.references :texture, foreign_key: true
       t.references :plant, foreign_key: true
-      t.text :type
+      t.string :type
 
       t.timestamps
     end

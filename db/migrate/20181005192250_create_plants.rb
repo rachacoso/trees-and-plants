@@ -4,9 +4,9 @@ class CreatePlants < ActiveRecord::Migration[5.2]
       t.string :genus
       t.string :species
       t.string :common_name
+      t.text :description      
       t.boolean :tree
       t.boolean :shrub
-      t.string :leafing_type
       t.boolean :fruits
       t.boolean :ca_native
       t.boolean :problematic

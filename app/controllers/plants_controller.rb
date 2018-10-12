@@ -25,6 +25,29 @@ class PlantsController < ApplicationController
 		@plant.growth_rate_ids = params[:plant][:growth_rate_ids]
 		@plant.leafing_type_ids = params[:plant][:leafing_type_ids]
 
+		# @plant.images.attach(params[:plant][:images_wide])
+
+		if params[:plant][:images_featured].present?
+			image = Image.create(image_type: 'featured')
+			image.attach(params[:plant][:images_featured])
+			@plant.images << image
+		end
+		if params[:plant][:images_whole].present?
+			image = Image.create(image_type: 'whole')
+			image.attach(params[:plant][:images_whole])
+			@plant.images << image
+		end
+		if params[:plant][:images_closeup].present?
+			image = Image.create(image_type: 'closeup')
+			image.attach(params[:plant][:images_closeup])
+			@plant.images << image
+		end
+		if params[:plant][:images_wide].present?
+			image = Image.create(image_type: 'wide')
+			image.attach(params[:plant][:images_wide])
+			@plant.images << image
+		end
+
 		respond_to do |format|
 			format.html { 
 				redirect_to edit_plant_url(@plant)
@@ -58,7 +81,8 @@ class PlantsController < ApplicationController
 		:width_min, 
 		:width_max,
 		:growth_rates,
-		:colors
+		:colors,
+		images: []
 
 		)
 	end

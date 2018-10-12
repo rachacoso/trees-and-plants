@@ -9,8 +9,10 @@ class Plant < ApplicationRecord
 	has_many :leafing_types, through: :plant_leafing_types, dependent: :destroy
 	has_many :plant_textures
 	has_many :textures, through: :plant_textures, dependent: :destroy
-	has_many_attached :images
-	
+	has_many :images
+
+	scope :with_attached_images, -> { includes(:images).merge(Image.with_attached_file) }
+
 	def check_property(property, value)
 		case property
 		when 'color'

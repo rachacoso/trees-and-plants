@@ -34,26 +34,34 @@ ActiveRecord::Schema.define(version: 2018_10_09_194915) do
   end
 
   create_table "adjectives", force: :cascade do |t|
-    t.text "adjective"
+    t.string "adjective"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "colors", force: :cascade do |t|
-    t.text "color"
-    t.text "color_type"
+    t.string "color"
+    t.string "color_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "growth_rates", force: :cascade do |t|
-    t.text "growth_rate"
+    t.string "growth_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "image_type"
+    t.integer "plant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_images_on_plant_id"
+  end
+
   create_table "leafing_types", force: :cascade do |t|
-    t.text "leafing_type"
+    t.string "leafing_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,7 +106,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_194915) do
   create_table "plant_textures", force: :cascade do |t|
     t.integer "texture_id"
     t.integer "plant_id"
-    t.text "type"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plant_id"], name: "index_plant_textures_on_plant_id"
@@ -109,9 +117,9 @@ ActiveRecord::Schema.define(version: 2018_10_09_194915) do
     t.string "genus"
     t.string "species"
     t.string "common_name"
+    t.text "description"
     t.boolean "tree"
     t.boolean "shrub"
-    t.string "leafing_type"
     t.boolean "fruits"
     t.boolean "ca_native"
     t.boolean "problematic"
@@ -124,7 +132,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_194915) do
   end
 
   create_table "textures", force: :cascade do |t|
-    t.text "texture"
+    t.string "texture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
