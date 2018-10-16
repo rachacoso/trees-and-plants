@@ -1,10 +1,10 @@
 
 <div class="row">
 	<div class="small-10 small-centered columns">
-		<%= link_to show_plant_url(@plant) do %>
+		<%#= link_to show_plant_url(@plant) do %>
 			<h1 class="plant-name"><%=@plant.scientific_name%>
 			<span id="common-name"><%=@plant.common_name%></span></h1>
-		<% end %>
+		<%# end %>
 	</div><!--/.small-10 small-centered-->
 </div><!--/.row-->
 
@@ -164,28 +164,18 @@
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 
-	<div class="row">
-		<div class="small-12 columns">
-			<h2>Images</h2>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
-	<div class="row">
-		<div class="small-12 medium-4 columns">
-			<h4>Featured</h4>
-			<%= f.file_field :images_featured %>
-			<%#= image_tag '/images/image_add.svg' %>
-		</div><!--/.small-12 medium-3-->
-		<div class="small-12 medium-8 columns">
-			<h4>Other Images</h4>
-			<%= f.file_field :images_other %>
-			<%#= image_tag '/images/image_add.svg' %>
-		</div><!--/.small-12 medium-3-->
-	</div><!--/.row-->
 
 	<div class="row">
 		<div class="small-12 columns">
 			<br>
 			<%= f.submit %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+<% end %>
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Images</h2>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 
@@ -195,11 +185,34 @@
 			<div class="preview-gallery">
 				<div class="images">
 					<div class="item">
-						<%= image_tag url_for(@plant.images.featured.with_attached_file.first.file) %>
-					</div>
-					<% @plant.images.other.randomize.with_attached_file.each do |image| %>
-						<div class="item"><%= image_tag url_for(image.file) %></div>
+					<% if @plant.images.featured.exists? %>
+						<%= link_to destroy_image_url(@plant.images.featured.with_attached_file.first.file.id), :method => 'delete' do %><%= image_tag url_for(@plant.images.featured.with_attached_file.first.file) %><% end %>
+					<% else %>
+						<h4>Featured Image</h4>
+						<%= form_for @plant, url: upload_plant_image_url, :html => {id: 'featured-image-upload'} do |f| %>
+							<%= f.label :images_featured do %>
+							<%= image_tag '/images/image_add.svg' %><br>
+							<small>Upload a Featured Photo</small>
+							<%= f.file_field :images_featured, class: 'hide-upload', label: false, accept: 'image/png,image/gif,image/jpeg' %>
+							<% end %>
+						<% end %>
 					<% end %>
+					</div>
+					<% if @plant.images.other.exists? %>
+						<% @plant.images.other.with_attached_file.each do |image| %>
+							<div class="item"><%= link_to destroy_image_url(image.id), :method => 'delete' do %><%= image_tag url_for(image.file) %><% end %></div>
+						<% end %>
+					<% end %>
+					<div class="item">
+						<%= form_for @plant, url: upload_plant_image_url, :html => {id: 'other-image-upload'} do |f| %>
+							<%= f.label :images_other do %>
+								<h4>Additional Images</h4>
+								<%= image_tag '/images/image_add.svg' %><br>
+											<small>Upload Additional Photo</small>
+								<%= f.file_field :images_other, class: 'hide-upload', label: false, accept: 'image/png,image/gif,image/jpeg' %>
+							<% end %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div><!--/.small-12-->
@@ -207,5 +220,4 @@
 	<% end %>
 </div><!--/.small-12-->
 </div><!--/.row-->
-<% end %>
 
