@@ -5,7 +5,6 @@ class Image < ApplicationRecord
 	delegate_missing_to :file
 
 	scope :featured, -> { where(image_type: 'featured') }
-	scope :whole, -> { where(image_type: 'whole') }
-	scope :closeup, -> { where(image_type: 'closeup') }
-	scope :wide, -> { where(image_type: 'wide') }
+	scope :other, -> { where(image_type: 'other') }
+	scope :randomize, -> { order('random()') }
 end

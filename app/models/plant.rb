@@ -27,4 +27,32 @@ class Plant < ApplicationRecord
 			return true if self.adjectives.find_by_id(value)
 		end
 	end
+
+	def scientific_name
+		return "#{self.genus.capitalize} #{self.species}"
+	end
+	def display_width
+		if self.width_min
+			if self.width_max
+				return "#{self.width_min} - #{self.width_max}"
+			else
+				return "#{self.width_min}"
+			end
+		else
+			return false
+		end
+	end
+	def display_height
+		if self.height_min
+			if self.height_max
+				return "#{self.height_min} - #{self.height_max}"
+			else
+				return "#{self.height_min}"
+			end
+		else
+			return false
+		end
+	end
+	def size_category
+	end
 end

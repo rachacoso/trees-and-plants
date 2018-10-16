@@ -1,7 +1,74 @@
+<div class="row">
+	<div class="small-12 medium-8 medium-push-4 columns">
+		<h1 class="plant-name"><%=@plant.scientific_name%>
+		<span id="common-name"> / <%=@plant.common_name%></span></h1>
+	</div><!--/.small-12-->
+	<div class="small-12 medium-4 medium-pull-8 columns">
+		<div class="description"><%=@plant.description%></div>
+	</div><!--/.small-12-->
+</div><!--/.row-->
 
 <div class="row">
-	<div class="small-10 small-centered columns">
-		<%= link_to show_plant_url(@plant) do %><h1 id="scientific-name"><%=@plant.genus%> <%=@plant.species%></h1><% end %>
-		<h1 id="common-name"><%=@plant.common_name%></h1>
-	</div><!--/.small-10 small-centered-->
+	<div class="small-12 medium-4 columns">
+		<div class="container">
+			<div class="attributes">
+				<% if @plant.ca_native %>
+				<div class="attribute-block">
+					<div class="attribute-name">Native to California</div>
+				</div>
+				<% end %>
+				<% if @plant.display_height && @plant.display_width %>
+					<div class="attribute-block">
+						<div class="attribute-name">Size</div>
+						<div class="attribute-value">Height: <%= @plant.display_height %> feet</div>
+						<div class="attribute-value">Width: <%= @plant.display_width %> feet</div>
+					</div>
+				<% end %>
+				<% if @plant.adjectives.exists? %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.adjectives, name: 'Adjectives', value: 'adjective'} %>
+				<% end %>
+				<% if @plant.growth_rates.exists? %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.growth_rates, name: 'Growth Rate', value: 'growth_rate'} %>
+				<% end %>
+				<% if @plant.leafing_types.exists? %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.leafing_types, name: 'Leafing Type', value: 'leafing_type'} %>
+				<% end %>
+				<% if @plant.colors.bark.exists? %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.colors.bark, name: 'Bark Color', value: 'color'} %>
+				<% end %>
+				<% if @plant.colors.leaf_growth.exists? %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.colors.leaf_growth, name: 'Leaf Growth Color', value: 'color'} %>
+				<% end %>
+				<% if @plant.colors.leaf_autumn.exists? && !@plant.colors.leaf_autumn.find_by(color: 'No Change') %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.colors.leaf_autumn, name: 'Leaf Autumn Color', value: 'color'} %>
+				<% end %>
+				<% if @plant.colors.flower.exists? %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.colors.flower, name: 'Flower Color', value: 'color'} %>
+				<% end %>
+				<% if @plant.colors.fruit.exists? %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.colors.fruit, name: 'Fruit Color', value: 'color'} %>
+				<% end %>
+				<% if @plant.textures.exists? %>
+					<%= render partial: 'shared/attribute', locals: {attribute: @plant.textures, name: 'Textures', value: 'texture'} %>
+				<% end %>
+			</div>
+		</div>
+
+	</div><!--/.small-12-->
+	<div class="small-12 medium-8 columns">
+		<div class="gallery">
+			<div class="images">
+				<div class="item">
+					<%= image_tag url_for(@plant.images.featured.with_attached_file.first.file) %>
+				</div>
+				<% @plant.images.other.randomize.limit(3).with_attached_file.each do |image| %>
+					<div class="item"><%= image_tag url_for(image.file) %></div>
+				<% end %>
+			</div>
+		</div>
+	</div><!--/.small-12 medium-9-->
 </div><!--/.row-->
+
+
+
+

@@ -2,10 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-h1#scientific-name {
+h1.plant-name {
+	text-align: right;
 	font-style: italic;
+	font-weight: 400;
+	& #common-name {
+//		display: block;
+		font-weight: 100;
+		margin-top: rem-calc(1);
+	}
 }
-h1#common-name {
-	font-weight: 100;
+
+.description {
+	background: #efefef;
+	font-weight: 200;
+	text-align: right;
+	padding: 10px;
+	margin-bottom: 10px;
 }
+
+.attributes {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: minmax(100px,max-content);
+	grid-gap: 10px;
+	margin-bottom: 20px;
+	.attribute-block {
+		padding: 10px;
+		background: #efefef;
+		font-size: 1.2em;
+		.attribute-name { font-weight: 500; }
+		.attribute-value { font-weight: 100; }
+	}
+}
+

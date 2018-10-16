@@ -1,0 +1,6 @@
+<div class="attribute-block">
+	<div class="attribute-name"><%= name %></div>
+	<% attribute.each do |c| %>
+		<div class="attribute-value"><%= c.send(value) %></div>
+	<% end %>
+</div>

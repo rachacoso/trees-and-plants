@@ -33,10 +33,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'dropzonejs-rails'
+
+gem 'image_processing', '~> 1.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'foundation-rails'
+gem 'foundation-rails', '5.5.2.1'
 gem 'autoprefixer-rails'
 gem 'foundation_rails_helper'
 gem 'foundation-icons-sass-rails'

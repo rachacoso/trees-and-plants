@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="small-12 columns">
+		<table>
+		<% @plants.each do |plant| %>
+		  <tr><td><%= image_tag url_for(plant.images.featured.with_attached_file.first.file.variant(resize: "100x100^")) rescue nil %></td><td><h5><i><b><%= plant.genus %> <%= plant.species %></b></i></h5></td> <td><h5><%= plant.common_name %></h5></td><td><%= link_to "edit", edit_plant_url(plant) %></td></tr>
+		<% end %>
+		</table>
+	</div><!--/.small-12-->
+</div><!--/.row-->

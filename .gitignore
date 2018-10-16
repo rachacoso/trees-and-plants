@@ -27,3 +27,6 @@
 
 # Ignore pow symlink
 /landing
+
+# Ignore dev storage
+/storage
