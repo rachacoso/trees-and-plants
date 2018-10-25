@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  soil_texture: one
+  plant: one
+
+two:
+  soil_texture: two
+  plant: two

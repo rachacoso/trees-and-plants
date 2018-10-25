@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  litter_type: one
+  plant: one
+
+two:
+  litter_type: two
+  plant: two

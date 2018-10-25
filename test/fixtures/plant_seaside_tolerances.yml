@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seaside_tolerance: one
+  plant: one
+
+two:
+  seaside_tolerance: two
+  plant: two

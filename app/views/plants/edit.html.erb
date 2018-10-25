@@ -156,6 +156,148 @@
 	</div><!--/.row-->
 	<div class="row">
 		<div class="small-12 columns">
+			<h2>Exposures</h2>
+			<% @exposures.each do |exposure| %>
+			  <%= check_box_tag "plant[exposure_ids][]", exposure.id, @plant.exposure_ids.include?(exposure.id), id: "plant_exposure_ids_#{exposure.id}" %>
+			  <%= label_tag("plant_exposure_ids_#{exposure.id}", exposure.exposure ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>pH</h2>
+			<% @phs.each do |ph| %>
+			  <%= check_box_tag "plant[ph_ids][]", ph.id, @plant.ph_ids.include?(ph.id), id: "plant_ph_ids_#{ph.id}" %>
+			  <%= label_tag("plant_ph_ids_#{ph.id}", ph.ph ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Sunset Zone</h2>
+			<% @sunset_zones.each do |sunset_zone| %>
+			  <%= check_box_tag "plant[sunset_zone_ids][]", sunset_zone.id, @plant.sunset_zone_ids.include?(sunset_zone.id), id: "plant_sunset_zone_ids_#{sunset_zone.id}" %>
+			  <%= label_tag("plant_sunset_zone_ids_#{sunset_zone.id}", sunset_zone.sunset_zone ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Soil Texture</h2>
+			<% @soil_textures.each do |soil_texture| %>
+			  <%= check_box_tag "plant[soil_texture_ids][]", soil_texture.id, @plant.soil_texture_ids.include?(soil_texture.id), id: "plant_soil_texture_ids_#{soil_texture.id}" %>
+			  <%= label_tag("plant_soil_texture_ids_#{soil_texture.id}", soil_texture.soil_texture ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Salinity Tolerance</h2>
+			<% @salinity_tolerances.each do |salinity_tolerance| %>
+			  <%= check_box_tag "plant[salinity_tolerance_ids][]", salinity_tolerance.id, @plant.salinity_tolerance_ids.include?(salinity_tolerance.id), id: "plant_salinity_tolerance_ids_#{salinity_tolerance.id}" %>
+			  <%= label_tag("plant_salinity_tolerance_ids_#{salinity_tolerance.id}", salinity_tolerance.salinity_tolerance ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Seaside Tolerance</h2>
+			<% @seaside_tolerances.each do |seaside_tolerance| %>
+			  <%= check_box_tag "plant[seaside_tolerance_ids][]", seaside_tolerance.id, @plant.seaside_tolerance_ids.include?(seaside_tolerance.id), id: "plant_seaside_tolerance_ids_#{seaside_tolerance.id}" %>
+			  <%= label_tag("plant_seaside_tolerance_ids_#{seaside_tolerance.id}", seaside_tolerance.seaside_tolerance ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Root Damage Potential</h2>
+			<% @root_damage_potentials.each do |root_damage_potential| %>
+			  <%= check_box_tag "plant[root_damage_potential_ids][]", root_damage_potential.id, @plant.root_damage_potential_ids.include?(root_damage_potential.id), id: "plant_root_damage_potential_ids_#{root_damage_potential.id}" %>
+			  <%= label_tag("plant_root_damage_potential_ids_#{root_damage_potential.id}", root_damage_potential.root_damage_potential ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Soil Moisture</h2>
+			<% @soil_moistures.each do |soil_moisture| %>
+			  <%= check_box_tag "plant[soil_moisture_ids][]", soil_moisture.id, @plant.soil_moisture_ids.include?(soil_moisture.id), id: "plant_soil_moisture_ids_#{soil_moisture.id}" %>
+			  <%= label_tag("plant_soil_moisture_ids_#{soil_moisture.id}", soil_moisture.soil_moisture ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Landscape Application</h2>
+			<% @landscape_applications.each do |landscape_application| %>
+			  <%= check_box_tag "plant[landscape_application_ids][]", landscape_application.id, @plant.landscape_application_ids.include?(landscape_application.id), id: "plant_landscape_application_ids_#{landscape_application.id}" %>
+			  <%= label_tag("plant_landscape_application_ids_#{landscape_application.id}", landscape_application.landscape_application ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Landscape Use</h2>
+			<% @landscape_uses.each do |landscape_use| %>
+			  <%= check_box_tag "plant[landscape_use_ids][]", landscape_use.id, @plant.landscape_use_ids.include?(landscape_use.id), id: "plant_landscape_use_ids_#{landscape_use.id}" %>
+			  <%= label_tag("plant_landscape_use_ids_#{landscape_use.id}", landscape_use.landscape_use ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Shape</h2>
+			<% @shapes.each do |shape| %>
+			  <%= check_box_tag "plant[shape_ids][]", shape.id, @plant.shape_ids.include?(shape.id), id: "plant_shape_ids_#{shape.id}" %>
+			  <%= label_tag("plant_shape_ids_#{shape.id}", shape.shape ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Habit</h2>
+			<% @habits.each do |habit| %>
+			  <%= check_box_tag "plant[habit_ids][]", habit.id, @plant.habit_ids.include?(habit.id), id: "plant_habit_ids_#{habit.id}" %>
+			  <%= label_tag("plant_habit_ids_#{habit.id}", habit.habit ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Branch Strength</h2>
+			<% @branch_strengths.each do |branch_strength| %>
+			  <%= check_box_tag "plant[branch_strength_ids][]", branch_strength.id, @plant.branch_strength_ids.include?(branch_strength.id), id: "plant_branch_strength_ids_#{branch_strength.id}" %>
+			  <%= label_tag("plant_branch_strength_ids_#{branch_strength.id}", branch_strength.branch_strength ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Litter Type</h2>
+			<% @litter_types.each do |litter_type| %>
+			  <%= check_box_tag "plant[litter_type_ids][]", litter_type.id, @plant.litter_type_ids.include?(litter_type.id), id: "plant_litter_type_ids_#{litter_type.id}" %>
+			  <%= label_tag("plant_litter_type_ids_#{litter_type.id}", litter_type.litter_type ) %>
+			<% end %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+
+
+
+	<div class="row">
+		<div class="small-12 columns">
 			<h2>Adjectives</h2>
 			<% @adjectives.each do |adjective| %>
 			  <%= check_box_tag "plant[adjective_ids][]", adjective.id, @plant.adjective_ids.include?(adjective.id), id: "plant_adjective_ids_#{adjective.id}" %>
@@ -179,7 +321,7 @@
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 
-	<% if @plant.images.exists? %>
+	
 	<div class="row">
 		<div class="small-12 columns">
 			<div class="preview-gallery">
@@ -217,7 +359,6 @@
 			</div>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
-	<% end %>
 </div><!--/.small-12-->
 </div><!--/.row-->
 

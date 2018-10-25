@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seaside_tolerance: MyString
+
+two:
+  seaside_tolerance: MyString

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sunset_zone: one
+  plant: one
+
+two:
+  sunset_zone: two
+  plant: two

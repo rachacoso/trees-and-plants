@@ -44,6 +44,75 @@ textures = ["Blocky", "Exfoliating", "Fibrous", "Furrowed", "Ridged", "Rough", "
 textures.each do |t|
 	Texture.create( texture: t )
 end
+exposures = ["Sun", "Partial Shade", "Full Shade"]
+exposures.each do |item|
+	Exposure.create( exposure: item )
+end
+
+ph = ["Very Acidic", "Slightly Acidic", "Netural", "Slightly Alkaline", "Very Alkaline"]
+ph.each do |item|
+	Ph.create( ph: item )
+end
+
+sunset_zone = [*1..45]
+sunset_zone.each do |item|
+	SunsetZone.create( sunset_zone: item )
+end
+
+soil_texture = ["Clay", "Loam", "Sand"]
+soil_texture.each do |item|
+	SoilTexture.create( soil_texture: item )
+end
+
+salinity_tolerance = ["Moderate", "Good"]
+salinity_tolerance.each do |item|
+	SalinityTolerance.create( salinity_tolerance: item )
+end
+
+seaside_tolerance = ["Good", "Medium"]
+seaside_tolerance.each do |item|
+	SeasideTolerance.create( seaside_tolerance: item )
+end
+
+root_damage_potential = ["Low", "Moderate", "High"]
+root_damage_potential.each do |item|
+	RootDamagePotential.create( root_damage_potential: item )
+end
+
+soil_moisture = ["Wet", "Moist", "Dry"]
+soil_moisture.each do |item|
+	SoilMoisture.create( soil_moisture: item )
+end
+
+landscape_application = ["Screen", "Riparian", "Buffer Strip", "Specimen", "Container", "Street Tree", "Shade Tree"]
+landscape_application.each do |item|
+	LandscapeApplication.create( landscape_application: item )
+end
+
+landscape_use = ["Topiary", "Bonsai", "Espalier", "Hedged", "Pleached", "Pollarding"]
+landscape_use.each do |item|
+	LandscapeUse.create( landscape_use: item )
+end
+
+shape = ["Columnar", "Conical", "Oval", "Rounded", "Umbrella", "Vase", "Palm"]
+shape.each do |item|
+	Shape.create( shape: item )
+end
+
+habit = ["Spreading", "Compact", "Erect", "Weeping"]
+habit.each do |item|
+	Habit.create( habit: item )
+end
+
+branch_strength = ["Strong", "Medium", "Weak"]
+branch_strength.each do |item|
+	BranchStrength.create( branch_strength: item )
+end
+
+litter_type = ["Flower", "Fruit", "Wet Fruit", "Dry Fruit", "Leaves", "Twigs", "Bark"]
+litter_type.each do |item|
+	LitterType.create( litter_type: item )
+end
 adjectives = ["Majestic", "Magical", "Scrubby", "Mysterious", "Regal", "Fantastical", "Homey", "Shady", "Spindly", "Gnarled", "Wispy", "Magnetic", "Luxurious", "Pedestrian"]
 adjectives.each do |a|
 	Adjective.create( adjective: a )

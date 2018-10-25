@@ -1,0 +1,8 @@
+<div class="plant-thumbnail">
+	<div class="thumbnail-image"><%= image_tag url_for(plant.images.featured.with_attached_file.first.file) %></div>
+	<div class="thumbnail-name">
+		<%=plant.scientific_name%>
+		 / <%=plant.common_name%>
+	</div>
+	<div class="thumbnail-description"><%= plant.description %></div>
+</div>

@@ -36,3 +36,32 @@ h1.plant-name {
 	}
 }
 
+
+.plant-thumbnail {
+	width: 600px;
+	display: grid;
+	grid-template-columns: 50% min-content 1fr max-content;
+	grid-template-rows: min-content 1fr min-content;
+	grid-gap: 10px;
+	grid-template-areas:
+		"thumbnail-image thumbnail-name thumbnail-name thumbnail-name"
+		"thumbnail-image . thumbnail-description thumbnail-description"
+		"thumbnail-image . thumbnail-description thumbnail-description";
+	.thumbnail-image {
+		grid-area: thumbnail-image;
+		width: 250px;
+		height: 250px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.thumbnail-name {
+		grid-area: thumbnail-name;
+	}
+	.thumbnail-description {
+		grid-area: thumbnail-description;
+	}
+
+}

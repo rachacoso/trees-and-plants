@@ -1,3 +1,7 @@
-<% @plants.each do |plant| %>
-  <%= plant.genus %>
-<% end %>
+<div class="row">
+	<div class="small-12 columns">
+		<% @plants.each do |plant| %>
+			<%= render partial: 'shared/plant_thumbnail', locals: {plant: plant} %>
+		<% end %>
+	</div><!--/.small-12-->
+</div><!--/.row-->

@@ -27,6 +27,20 @@ class PlantsController < ApplicationController
 		@plant.texture_ids = params[:plant][:texture_ids]
 		@plant.growth_rate_ids = params[:plant][:growth_rate_ids]
 		@plant.leafing_type_ids = params[:plant][:leafing_type_ids]
+		@plant.exposure_ids = params[:plant][:exposure_ids]
+		@plant.ph_ids = params[:plant][:ph_ids]
+		@plant.sunset_zone_ids = params[:plant][:sunset_zone_ids]
+		@plant.soil_texture_ids = params[:plant][:soil_texture_ids]
+		@plant.salinity_tolerance_ids = params[:plant][:salinity_tolerance_ids]
+		@plant.seaside_tolerance_ids = params[:plant][:seaside_tolerance_ids]
+		@plant.root_damage_potential_ids = params[:plant][:root_damage_potential_ids]
+		@plant.soil_moisture_ids = params[:plant][:soil_moisture_ids]
+		@plant.landscape_application_ids = params[:plant][:landscape_application_ids]
+		@plant.landscape_use_ids = params[:plant][:landscape_use_ids]
+		@plant.shape_ids = params[:plant][:shape_ids]
+		@plant.habit_ids = params[:plant][:habit_ids]
+		@plant.branch_strength_ids = params[:plant][:branch_strength_ids]
+		@plant.litter_type_ids = params[:plant][:litter_type_ids]
 
 		respond_to do |format|
 			format.html { 
@@ -48,6 +62,20 @@ class PlantsController < ApplicationController
 		@plant.texture_ids = params[:plant][:texture_ids]
 		@plant.growth_rate_ids = params[:plant][:growth_rate_ids]
 		@plant.leafing_type_ids = params[:plant][:leafing_type_ids]
+		@plant.exposure_ids = params[:plant][:exposure_ids]
+		@plant.ph_ids = params[:plant][:ph_ids]
+		@plant.sunset_zone_ids = params[:plant][:sunset_zone_ids]
+		@plant.soil_texture_ids = params[:plant][:soil_texture_ids]
+		@plant.salinity_tolerance_ids = params[:plant][:salinity_tolerance_ids]
+		@plant.seaside_tolerance_ids = params[:plant][:seaside_tolerance_ids]
+		@plant.root_damage_potential_ids = params[:plant][:root_damage_potential_ids]
+		@plant.soil_moisture_ids = params[:plant][:soil_moisture_ids]
+		@plant.landscape_application_ids = params[:plant][:landscape_application_ids]
+		@plant.landscape_use_ids = params[:plant][:landscape_use_ids]
+		@plant.shape_ids = params[:plant][:shape_ids]
+		@plant.habit_ids = params[:plant][:habit_ids]
+		@plant.branch_strength_ids = params[:plant][:branch_strength_ids]
+		@plant.litter_type_ids = params[:plant][:litter_type_ids]
 
 		if params[:plant][:images_featured].present?
 			image = Image.create(image_type: 'featured')
@@ -85,6 +113,20 @@ class PlantsController < ApplicationController
 		@growth_rates = GrowthRate.all
 		@textures = Texture.all
 		@leafing_types = LeafingType.all
+		@exposures = Exposure.all
+		@phs = Ph.all
+		@sunset_zones = SunsetZone.all
+		@soil_textures = SoilTexture.all
+		@salinity_tolerances = SalinityTolerance.all
+		@seaside_tolerances = SeasideTolerance.all
+		@root_damage_potentials = RootDamagePotential.all
+		@soil_moistures = SoilMoisture.all
+		@landscape_applications = LandscapeApplication.all
+		@landscape_uses = LandscapeUse.all
+		@shapes = Shape.all
+		@habits = Habit.all
+		@branch_strengths = BranchStrength.all
+		@litter_types = LitterType.all
 		@adjectives = Adjective.all
 		@colors_leaf_growth = Color.leaf_growth
 		@colors_leaf_autumn = Color.leaf_autumn
