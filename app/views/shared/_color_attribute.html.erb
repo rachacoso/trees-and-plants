@@ -1,0 +1,6 @@
+<div class="attribute-block">
+	<div class="attribute-name"><%= name %></div>
+	<% attribute.each do |c| %>
+		<div class="color-block <%= c.send('css_friendly') %>"><div>&nbsp;</div></div>
+	<% end %>
+</div>

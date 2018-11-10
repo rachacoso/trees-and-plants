@@ -41,6 +41,22 @@ class Plant < ApplicationRecord
 
 	scope :with_attached_images, -> { includes(:images).merge(Image.with_attached_file) }
 
+
+	# scope :growth_rates, -> (ids) { where(growth_rate.in => ids) }
+	scope :with_growth_rates, -> (ids) { joins(:growth_rates).where(growth_rates: { id: ids } ) }
+	scope :with_colors, -> (ids) { joins(:colors).where(colors: { id: ids } ) }
+	scope :with_leafing_types, -> (ids) { joins(:leafing_types).where(leafing_types: { id: ids } ) }
+	scope :with_exposures, -> (ids) { joins(:exposures).where(exposures: { id: ids } ) }
+	scope :with_phs, -> (ids) { joins(:phs).where(phs: { id: ids } ) }
+	scope :with_soil_textures, -> (ids) { joins(:soil_textures).where(soil_textures: { id: ids } ) }
+	scope :with_soil_moistures, -> (ids) { joins(:soil_moistures).where(soil_moistures: { id: ids } ) }
+	scope :with_landscape_applications, -> (ids) { joins(:landscape_applications).where(landscape_applications: { id: ids } ) }
+	scope :with_landscape_uses, -> (ids) { joins(:landscape_uses).where(landscape_uses: { id: ids } ) }
+	scope :with_shapes, -> (ids) { joins(:shapes).where(shapes: { id: ids } ) }
+	scope :with_habits, -> (ids) { joins(:habits).where(habits: { id: ids } ) }
+	scope :with_salinity_tolerances, -> (ids) { joins(:salinity_tolerances).where(salinity_tolerances: { id: ids } ) }
+	scope :with_seaside_tolerances, -> (ids) { joins(:seaside_tolerances).where(seaside_tolerances: { id: ids } ) }
+
 	def check_property(property, value)
 		case property
 		when 'color'
@@ -83,4 +99,52 @@ class Plant < ApplicationRecord
 	end
 	def size_category
 	end
+
+	def aka?
+		return true if 	self.synonyms.present? ||
+						self.additional_common_names.present?
+	end
+	def size_attributes?
+		return true if 	self.display_height || 
+						self.display_width || 
+						self.growth_rates.exists?
+	end
+	def visual_attributes?
+		return true if 	self.leafing_types.exists? ||
+						self.shapes.exists? ||
+						self.habits.exists?	||
+						self.textures.exists?
+	end
+	def location_attributes?
+		return true if 	self.sunset_zones.exists? || 
+						self.exposures.exists? || 
+						self.seaside_tolerances.exists?
+	end
+	def soil_concerns?
+		return true if 	self.phs.exists? || 
+						self.soil_textures.exists? || 
+						self.salinity_tolerances.exists? ||
+						self.soil_moistures.exists?
+	end
+	def landscape_attributes?
+		return true if 	self.landscape_applications.exists? || 
+						self.landscape_uses.exists?
+	end
+	def nuisance_concerns?
+		return true if 	self.branch_strengths.exists? ||
+						self.root_damage_potentials.exists? ||
+						self.litter_types.exists?
+	end
+	def gallery_size
+		if self.images.exists?
+			if self.images.count > 4
+				return "five-up"
+			else
+				return "four-down"
+			end
+		else
+			return nil
+		end
+	end
+
 end

@@ -1,0 +1,10 @@
+<div class="gallery">
+	<div class="images">
+		<div class="item">
+			<%= image_tag url_for(plant.images.featured.with_attached_file.first.file) %>
+		</div>
+		<% plant.images.other.randomize.limit(4).with_attached_file.each do |image| %>
+			<div class="item"><%= image_tag url_for(image.file) %></div>
+		<% end %>
+	</div>
+</div>

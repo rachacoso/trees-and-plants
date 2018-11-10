@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require dropzone
+//= require flickity.pkgd
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

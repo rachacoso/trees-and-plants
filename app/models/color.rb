@@ -8,4 +8,8 @@ class Color < ApplicationRecord
 	scope :bark, -> { where(color_type: "Bark") }
 	scope :flower, -> { where(color_type: "Flower") }
 	scope :fruit, -> { where(color_type: "Fruit") }
+
+	def css_friendly
+		return self.color.downcase.gsub(/\s/, '-' ).gsub(/[\(\)]/, '' )
+	end
 end

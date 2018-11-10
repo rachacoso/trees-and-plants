@@ -4,7 +4,10 @@ class CreatePlants < ActiveRecord::Migration[5.2]
       t.string :genus
       t.string :species
       t.string :common_name
-      t.text :description      
+      t.text :description
+      t.text :notes
+      t.text :additional_common_names
+      t.text :synonyms
       t.boolean :tree
       t.boolean :shrub
       t.boolean :fruits

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 	get 'home/front'
 
-	get 'adminplants/' => 'plants#adminindex', as: 'plants'
-	get 'plants/' => 'plants#index', as: 'plants_admin'
+	get 'adminplants/' => 'plants#adminindex', as: 'plants_admin'
+	get 'plants/' => 'plants#index', as: 'plants'
+	post 'plants/' => 'plants#index', as: 'plants_search'
 	get 'plants/new' => 'plants#new', as: 'new_plant'
 	post 'plants/new' => 'plants#create'
 	get 'plants/show/:id' => 'plants#show', as: 'show_plant'

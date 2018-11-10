@@ -26,6 +26,16 @@
 	</div><!--/.row-->
 	<div class="row">
 		<div class="large-6 columns">
+			<%= label_tag(:plant_synonyms, "Synonyms") %>
+			<%= f.text_area :synonyms, rows: 4, placeholder: "Synonyms", label: false %>
+		</div><!--/.small-12-->
+		<div class="large-6 columns">
+			<%= label_tag(:plant_additional_common_names, "Additional Common Names") %>
+			<%= f.text_area :additional_common_names, rows: 4, placeholder: "Additional Common Names", label: false %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="large-6 columns">
 		<%= label_tag(:plant_width_min, "Width (Minimum)") %>
 		<%= f.number_field :width_min, placeholder: 'Width (Min)', label: false %>
 		<%= label_tag(:plant_width_max, "Width (Maximum)") %>
@@ -42,6 +52,12 @@
 		<div class="small-12 columns">
 			<%= label_tag(:plant_description, "Description") %>
 			<%= f.text_area :description, rows: 4, placeholder: "Description", label: false %>
+		</div><!--/.small-12-->
+	</div><!--/.row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<%= label_tag(:plant_notes, "Notes") %>
+			<%= f.text_area :notes, rows: 4, placeholder: "Notes", label: false %>
 		</div><!--/.small-12-->
 	</div><!--/.row-->
 	<div class="row">

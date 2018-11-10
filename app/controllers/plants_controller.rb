@@ -1,13 +1,51 @@
 class PlantsController < ApplicationController
 	before_action :set_plant, only: [:show, :edit, :update, :destroy]
-	before_action :get_plant_attributes, only: [:edit, :new]
+	before_action :get_plant_attributes, only: [:edit, :new, :index]
 
 	def show
 
 	end
 
 	def index
-		@plants = Plant.all
+		if params[:plant]
+			@plants = Plant.all
+			@filters = params[:plant]
+			plant_ids = []
+			@filters.each do |key, value|
+				case key
+				when "growth_rate_ids"
+					@plants = @plants.with_growth_rates(value).distinct
+				when "leafing_type_ids"
+					@plants = @plants.with_leafing_types(value).distinct
+				when "exposure_ids"
+					@plants = @plants.with_exposures(value).distinct
+				when "ph_ids"
+					@plants = @plants.with_phs(value).distinct
+				when "soil_texture_ids"
+					@plants = @plants.with_soil_textures(value).distinct
+				when "color_ids"
+					@plants = @plants.with_colors(value).distinct
+				when "soil_moisture_ids"
+					@plants = @plants.with_soil_moistures(value).distinct
+				when "landscape_application_ids"
+					@plants = @plants.with_landscape_applications(value).distinct
+				when "landscape_use_ids"
+					@plants = @plants.with_landscape_uses(value).distinct
+				when "shape_ids"
+					@plants = @plants.with_shapes(value).distinct
+				when "habit_ids"
+					@plants = @plants.with_habits(value).distinct
+				when "salinity_tolerance_ids"
+					@plants = @plants.with_salinity_tolerances(value).distinct
+				when "seaside_tolerance_ids"
+					@plants = @plants.with_seaside_tolerances(value).distinct
+				end
+			end
+			@plants.distinct
+		else
+			@filters = []
+			@plants = Plant.all
+		end
 	end
 
 	def adminindex
@@ -133,6 +171,7 @@ class PlantsController < ApplicationController
 		@colors_bark = Color.bark
 		@colors_flower = Color.flower
 		@colors_fruit = Color.fruit
+		@colors = Color.all
 	end
 
 	def plant_parameters
@@ -140,7 +179,9 @@ class PlantsController < ApplicationController
 
 		:genus, 
 		:species, 
-		:common_name, 
+		:common_name,
+		:synonyms,
+		:additional_common_names,
 		:tree, 
 		:shrub, 
 		:leafing_type, 
@@ -154,6 +195,7 @@ class PlantsController < ApplicationController
 		:growth_rates,
 		:colors,
 		:description,
+		:notes,
 		images: []
 
 		)

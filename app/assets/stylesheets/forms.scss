@@ -50,10 +50,18 @@ input[type="number"].focus {
     width: 100%;
   }
   input[type=checkbox] + label:hover ,
-  input[type=checkbox]+ label:active  {
+  input[type=checkbox] + label:active  {
     color: #000;
   }
 
+  input[type=checkbox].color + label {
+    border: 2px solid #dfdfdf;
+  }
+  input[type=checkbox].color + label, 
+  input[type=checkbox].color + label:hover ,
+  input[type=checkbox].color + label:active  {
+    color: transparent;
+  }
   /*
    Change background color for label next to checked radio button
    to make it look like highlighted button
@@ -63,5 +71,12 @@ input[type="number"].focus {
     background-color: scale-color($input-background-color, $lightness: 30%);
     border: 1px solid scale-color($input-background-color, $lightness: -50%);
     color: #000;
+    // background-color: #e7e7e7;
+  }
+  input[type=checkbox].color:checked + label { 
+    background-image: none;
+    background-color: scale-color($input-background-color, $lightness: 30%);
+    border: 2px solid #0000EE;
+    color: transparent;
     // background-color: #e7e7e7;
   }
