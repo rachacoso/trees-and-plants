@@ -56,6 +56,13 @@ class Plant < ApplicationRecord
 	scope :with_habits, -> (ids) { joins(:habits).where(habits: { id: ids } ) }
 	scope :with_salinity_tolerances, -> (ids) { joins(:salinity_tolerances).where(salinity_tolerances: { id: ids } ) }
 	scope :with_seaside_tolerances, -> (ids) { joins(:seaside_tolerances).where(seaside_tolerances: { id: ids } ) }
+	scope :width_to_29, -> { where("width_min <= ? OR width_max <= ?", 29, 29)}
+	scope :width_30_to_59, -> { where("(width_min BETWEEN ? AND ?) OR (width_max BETWEEN ? AND ?) ", 30, 59, 30, 59)}
+	scope :width_30_to_60, -> { where("(width_min BETWEEN ? AND ?) OR (width_max BETWEEN ? AND ?) ", 30, 60, 30, 60)}
+	scope :width_61_to_100, -> { where("(width_min BETWEEN ? AND ?) OR (width_max BETWEEN ? AND ?) ", 61, 100, 61, 100)}
+	scope :width_above_100, -> { where("(width_min > ?) OR (width_max > ?) ", 100, 100)}
+	scope :height_to_30, -> { where("height_min < ? OR height_max < ?", 30, 30)}
+
 
 	def check_property(property, value)
 		case property

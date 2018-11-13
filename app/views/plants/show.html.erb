@@ -27,7 +27,12 @@
 </div>
 
 <div class="row">
-
+	<% if @plant.notes.present? %>
+	<div class="small-12 columns">
+		<div class="attribute-group-header">Notes</div>
+		<div class="notes"><%= simple_format(@plant.notes, {}, wrapper_tag: 'p') %></div>
+	</div><!--/.small-12-->
+	<% end %>
 	<div class="small-12 columns">
 		<% if @plant.aka? %>
 		<div class="attribute-group-header">A.K.A.</div>
