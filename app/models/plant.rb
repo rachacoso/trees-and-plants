@@ -150,7 +150,7 @@ class Plant < ApplicationRecord
 				return "four-down"
 			end
 		else
-			return nil
+			return "four-down"
 		end
 	end
 

@@ -7,14 +7,25 @@
 			</div>
 			<div id="front-grid-gallery" class="<%= @plant.gallery_size %>">
 				<% if @plant.images.exists? %>
-					<div class="image <%= @plant.gallery_size %>" style="background-image: url(<%= url_for(@plant.images.featured.with_attached_file.first.file) %>">
-						<%#= image_tag url_for(@plant.images.featured.with_attached_file.first.file) %>
-					</div>
+					<% if @plant.images.featured.exists? %>
+					<div class="image <%= @plant.gallery_size %>" style="background-image: url(<%= url_for(@plant.images.featured.with_attached_file.first.file) %>"></div>
+					<% else %>
+						<div class="image <%= @plant.gallery_size %>"></div>
+					<% end %>					
 					<% if @plant.images.other.exists? %>
 						<% @plant.images.other.randomize.limit(4).with_attached_file.each do |image| %>
-							<div class="image <%= @plant.gallery_size %>" style="background-image: url(<%= url_for(image.file) %>"><%#= image_tag url_for(image.file) %></div>
+							<div class="image <%= @plant.gallery_size %>" style="background-image: url(<%= url_for(image.file) %>"></div>
 						<% end %>
+					<% else %>
+						<div class="image <%= @plant.gallery_size %>"></div>
+						<div class="image <%= @plant.gallery_size %>"></div>
+						<div class="image <%= @plant.gallery_size %>"></div>
 					<% end %>
+				<% else %>
+					<div class="image <%= @plant.gallery_size %>"></div>
+					<div class="image <%= @plant.gallery_size %>"></div>
+					<div class="image <%= @plant.gallery_size %>"></div>
+					<div class="image <%= @plant.gallery_size %>"></div>
 				<% end %>
 			</div>
 			<div id="front-grid-name">

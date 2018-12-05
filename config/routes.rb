@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 	delete  '/image/:id' => 'images#destroy', as: 'destroy_image'
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-	root 'home#front'
+	root 'plants#index'
   
 end
