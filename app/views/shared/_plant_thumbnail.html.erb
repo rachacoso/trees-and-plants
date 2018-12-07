@@ -1,17 +1,16 @@
 <%= link_to show_plant_url(plant) do %>
-<div class="plant-thumbnail">
-		<% if plant.images.exists? %>
-		<div class="thumbnail-image" style="background-image: url(<%= url_for(plant.images.featured.with_attached_file.first.file) %>"></div>
-		<% else %>
-		<div class="thumbnail-image" style="background-color: green;"></div>
-		<% end %>
+<% if plant.images.exists? %>
+<div class="plant-thumbnail" style="background-image: url(<%= url_for(plant.images.featured.with_attached_file.first.file) %>)">
+<% else %>
+<div class="plant-thumbnail"  style="background-color: green;" >
+<% end %>
+f
 	<div class="thumbnail-name">
-		<div class="plant-name"><%=plant.scientific_name%></div>
-		<div class="common-name"><%=plant.common_name%></div>
+		<div class="plant-name"><span><%=plant.scientific_name%></span></div>
+		<div class="common-name"><span><%=plant.common_name%></span></div>
 	</div>
 	<div class="thumbnail-description">
-		Width: <%= plant.display_width %><br>
-		Height: <%= plant.display_height %>
+		<span>Width: <%= plant.display_width %> Height: <%= plant.display_height %></span>
 	</div>
 </div>
 <% end %>
