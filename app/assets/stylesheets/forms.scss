@@ -25,7 +25,7 @@ input[type="number"].focus {
   }
 }
 
-  input[type=checkbox] {
+  input[type=checkbox], input[type=radio] {
     display:none; 
     margin:10px;
   }
@@ -74,6 +74,52 @@ input[type="number"].focus {
     // background-color: #e7e7e7;
   }
   input[type=checkbox].color:checked + label { 
+    background-image: none;
+    background-color: scale-color($input-background-color, $lightness: 30%);
+    border: 2px solid #0000EE;
+    color: transparent;
+    // background-color: #e7e7e7;
+  }
+
+  input[type=radio] + label {
+    display:inline-block;
+    transition: color 0.5s;
+    transition: background-color 0.5s;
+    transition: border 0.5s;  
+    margin: 2px;
+    padding: 4px 12px;
+    background-color: scale-color($input-background-color, $lightness: 80%);
+    border: 1px solid scale-color($input-background-color, $lightness: 30%);
+    // background-color:#969696;
+    // border-color: #ddd;    
+    color: #7f7f7f;
+    width: 100%;
+  }
+  input[type=radio] + label:hover ,
+  input[type=radio] + label:active  {
+    color: #000;
+  }
+
+  input[type=radio].color + label {
+    border: 2px solid #dfdfdf;
+  }
+  input[type=radio].color + label, 
+  input[type=radio].color + label:hover ,
+  input[type=radio].color + label:active  {
+    color: transparent;
+  }
+  /*
+   Change background color for label next to checked radio button
+   to make it look like highlighted button
+  */
+  input[type=radio]:checked + label { 
+    background-image: none;
+    background-color: scale-color($input-background-color, $lightness: 30%);
+    border: 1px solid scale-color($input-background-color, $lightness: -50%);
+    color: #000;
+    // background-color: #e7e7e7;
+  }
+  input[type=radio].color:checked + label { 
     background-image: none;
     background-color: scale-color($input-background-color, $lightness: 30%);
     border: 2px solid #0000EE;

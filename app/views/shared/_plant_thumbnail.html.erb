@@ -9,6 +9,9 @@
 		<div class="plant-name"><%=plant.scientific_name%></div>
 		<div class="common-name"><%=plant.common_name%></div>
 	</div>
-	<div class="thumbnail-description"><%#= plant.description %></div>
+	<div class="thumbnail-description">
+		Width: <%= plant.display_width %><br>
+		Height: <%= plant.display_height %>
+	</div>
 </div>
 <% end %>

@@ -7,12 +7,35 @@
 		<div id="filter-list">
 <%= form_tag(plants_url, method: "get", name: 'FilterForm') do %>
 
+					<h6>Tree Width</h6>
+					<div class="row">
+					<div class="small-6 columns">
+					<%= label_tag("size_width_min]", "Min") %>
+					<%= number_field_tag "size_width_min]", @size_width_min %>
+					</div><!--/.small-6-->
+					<div class="small-6 columns">
+					<%= label_tag("size_width_max]", "Max") %>
+					<%= number_field_tag "size_width_max]", @size_width_max %>
+					</div><!--/.small-6-->
+					</div><!--/.row-->
+
+					<h6>Tree Height</h6>
+					<div class="row">
+					<div class="small-6 columns">
+					<%= label_tag("size_height_min]", "Min") %>
+					<%= number_field_tag "size_height_min]", @size_height_min %>
+					</div><!--/.small-6-->
+					<div class="small-6 columns">
+					<%= label_tag("size_height_max]", "Max") %>
+					<%= number_field_tag "size_height_max]", @size_height_max %>
+					</div><!--/.small-6-->
+					</div><!--/.row-->
+
 					<h6>Growth Rate</h6>
 					<% @growth_rates.each do |growth_rate| %>
 					  <%= check_box_tag "plant[growth_rate_ids][]", growth_rate.id, checkFilter('growth_rate_ids', growth_rate.id, @filters), id: "plant_growth_rate_ids_#{growth_rate.id}" %>
 					  <%= label_tag("plant_growth_rate_ids_#{growth_rate.id}", growth_rate.growth_rate ) %>
 					<% end %>
-
 
 					<h6>Leafing Type</h6>
 					<% @leafing_types.each do |leafing_type| %>
@@ -158,6 +181,7 @@
 	</div>
 	<div id="index-list">
 		<% if @plants.present? %>
+			<div class="count">Trees Found: <%= @plants.count %></div>
 			<div class="thumbnails">
 				<% @plants.each do |plant| %>
 					<%= render partial: 'shared/plant_thumbnail', locals: {plant: plant} %>

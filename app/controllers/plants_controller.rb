@@ -7,8 +7,18 @@ class PlantsController < ApplicationController
 	end
 
 	def index
+
+		@plants = Plant.all
+
+		@size_width_min = params[:size_width_min].present? ? params[:size_width_min] : 0
+		@size_width_max = params[:size_width_max].present? ? params[:size_width_max] : 300
+		@size_height_min = params[:size_height_min].present? ? params[:size_height_min] : 0
+		@size_height_max =  params[:size_height_max].present? ? params[:size_height_max] : 300
+
+		@plants = @plants.width(@size_width_min, @size_width_max)
+		@plants = @plants.height(@size_height_min, @size_height_max)
+
 		if params[:plant]
-			@plants = Plant.all
 			@filters = params[:plant]
 			plant_ids = []
 			@filters.each do |key, value|
@@ -44,7 +54,6 @@ class PlantsController < ApplicationController
 			@plants.distinct
 		else
 			@filters = []
-			@plants = Plant.all
 		end
 	end
 
