@@ -100,41 +100,62 @@
 		</div><!--/.large-4-->
 		<div class="large-4 columns">
 			<h2>Color - Leaf (Growth)</h2>
-			<% @colors_leaf_growth.each do |color| %>
-			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
-			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
-			<% end %>
+			<div class="color-picker-container">
+				<% @colors_leaf_growth.each do |color| %>
+					<div class="color-picker">
+						<%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}", class: "color" %>
+						<%= label_tag("plant_color_ids_#{color.id}", "X", class: color.css_friendly ) %>
+					</div>
+				<% end %>
+			</div>
 		</div><!--/.large-4-->
 		<div class="large-4 columns">
 			<h2>Color - Leaf (Autumn)</h2>
-			<% @colors_leaf_autumn.each do |color| %>
-			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
-			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
-			<% end %>
+			<div class="color-picker-container">
+				<% @colors_leaf_autumn.each do |color| %>
+					<div class="color-picker">
+						<%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}", class: "color" %>
+						<%= label_tag("plant_color_ids_#{color.id}", "X", class: color.css_friendly ) %>
+					</div>
+				<% end %>
+			</div>
 		</div><!--/.large-4-->
 	</div><!--/.row-->
 
 	<div class="row">
 		<div class="large-4 columns">
 			<h2>Color - Bark</h2>
-			<% @colors_bark.each do |color| %>
-			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
-			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
-			<% end %>
+			<div class="color-picker-container">
+				<% @colors_bark.each do |color| %>
+					<div class="color-picker">
+						<%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}", class: "color" %>
+						<%= label_tag("plant_color_ids_#{color.id}", "X", class: color.css_friendly ) %>
+					</div>
+				<% end %>
+			</div>
 		</div><!--/.large-4-->
+
 		<div class="large-4 columns">
 			<h2>Color - Flower</h2>
-			<% @colors_flower.each do |color| %>
-			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
-			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
-			<% end %>
+			<div class="color-picker-container">
+				<% @colors_flower.each do |color| %>
+					<div class="color-picker">
+						<%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}", class: "color" %>
+						<%= label_tag("plant_color_ids_#{color.id}", "X", class: color.css_friendly ) %>
+					</div>
+				<% end %>
+			</div>
 		</div><!--/.large-4-->
 		<div class="large-4 columns">
 			<h2>Color - Fruit</h2>
-			<% @colors_fruit.each do |color| %>
-			  <%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}" %>
-			  <%= label_tag("plant_color_ids_#{color.id}", color.color ) %>
-			<% end %>
+			<div class="color-picker-container">
+				<% @colors_fruit.each do |color| %>
+					<div class="color-picker">
+						<%= check_box_tag "plant[color_ids][]", color.id, @plant.color_ids.include?(color.id), id: "plant_color_ids_#{color.id}", class: "color" %>
+						<%= label_tag("plant_color_ids_#{color.id}", "X", class: color.css_friendly ) %>
+					</div>
+				<% end %>
+			</div>
 		</div><!--/.large-4-->
 	</div><!--/.row-->
 
