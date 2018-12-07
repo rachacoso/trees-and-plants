@@ -3,128 +3,93 @@
 		<%= render partial: 'shared/header' %>
 	</div>
 	<div id="index-filters">
-		<%= form_tag(plants_url, method: "get") do %>
-			<div class="row">
-				<div class="small-12 columns">
+		
+		<div id="filter-list">
+<%= form_tag(plants_url, method: "get", name: 'FilterForm') do %>
+
 					<h6>Growth Rate</h6>
 					<% @growth_rates.each do |growth_rate| %>
 					  <%= check_box_tag "plant[growth_rate_ids][]", growth_rate.id, checkFilter('growth_rate_ids', growth_rate.id, @filters), id: "plant_growth_rate_ids_#{growth_rate.id}" %>
 					  <%= label_tag("plant_growth_rate_ids_#{growth_rate.id}", growth_rate.growth_rate ) %>
 					<% end %>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
-			<div class="row">
-				<div class="small-12 columns">
+
+
 					<h6>Leafing Type</h6>
 					<% @leafing_types.each do |leafing_type| %>
 					  <%= check_box_tag "plant[leafing_type_ids][]", leafing_type.id, checkFilter('leafing_type_ids', leafing_type.id, @filters), id: "plant_leafing_type_ids_#{leafing_type.id}" %>
 					  <%= label_tag("plant_leafing_type_ids_#{leafing_type.id}", leafing_type.leafing_type ) %>
 					<% end %>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
-			<div class="row">
-				<div class="small-12 columns">
+
+
 					<h6>Exposures</h6>
 					<% @exposures.each do |exposure| %>
 					  <%= check_box_tag "plant[exposure_ids][]", exposure.id, checkFilter('exposure_ids', exposure.id, @filters), id: "plant_exposure_ids_#{exposure.id}" %>
 					  <%= label_tag("plant_exposure_ids_#{exposure.id}", exposure.exposure ) %>
 					<% end %>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
 
-			<div class="row">
-				<div class="small-12 columns">
 					<h6>pH</h6>
 					<% @phs.each do |ph| %>
 					  <%= check_box_tag "plant[ph_ids][]", ph.id, checkFilter('ph_ids', ph.id, @filters), id: "plant_ph_ids_#{ph.id}" %>
 					  <%= label_tag("plant_ph_ids_#{ph.id}", ph.ph ) %>
 					<% end %>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
-			<div class="row">
-				<div class="small-12 columns">
+
+
 					<h6>Soil Texture</h6>
 					<% @soil_textures.each do |soil_texture| %>
 					  <%= check_box_tag "plant[soil_texture_ids][]", soil_texture.id, checkFilter('soil_texture_ids', soil_texture.id, @filters), id: "plant_soil_texture_ids_#{soil_texture.id}" %>
 					  <%= label_tag("plant_soil_texture_ids_#{soil_texture.id}", soil_texture.soil_texture ) %>
 					<% end %>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h6>Soil Moisture</h6>
-			<% @soil_moistures.each do |soil_moisture| %>
-			  <%= check_box_tag "plant[soil_moisture_ids][]", soil_moisture.id, checkFilter('soil_moisture_ids', soil_moisture.id, @filters), id: "plant_soil_moisture_ids_#{soil_moisture.id}" %>
-			  <%= label_tag("plant_soil_moisture_ids_#{soil_moisture.id}", soil_moisture.soil_moisture ) %>
-			<% end %>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
 
 
-	<div class="row">
-		<div class="small-12 columns">
-			<h6>Landscape Application</h6>
-			<% @landscape_applications.each do |landscape_application| %>
-			  <%= check_box_tag "plant[landscape_application_ids][]", landscape_application.id, checkFilter('landscape_application_ids', landscape_application.id, @filters), id: "plant_landscape_application_ids_#{landscape_application.id}" %>
-			  <%= label_tag("plant_landscape_application_ids_#{landscape_application.id}", landscape_application.landscape_application ) %>
-			<% end %>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h6>Landscape Use</h6>
-			<% @landscape_uses.each do |landscape_use| %>
-			  <%= check_box_tag "plant[landscape_use_ids][]", landscape_use.id, checkFilter('landscape_use_ids', landscape_use.id, @filters), id: "plant_landscape_use_ids_#{landscape_use.id}" %>
-			  <%= label_tag("plant_landscape_use_ids_#{landscape_use.id}", landscape_use.landscape_use ) %>
-			<% end %>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h6>Shape</h6>
-			<% @shapes.each do |shape| %>
-			  <%= check_box_tag "plant[shape_ids][]", shape.id, checkFilter('shape_ids', shape.id, @filters), id: "plant_shape_ids_#{shape.id}" %>
-			  <%= label_tag("plant_shape_ids_#{shape.id}", shape.shape ) %>
-			<% end %>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h6>Habit</h6>
-			<% @habits.each do |habit| %>
-			  <%= check_box_tag "plant[habit_ids][]", habit.id, checkFilter('habit_ids', habit.id, @filters), id: "plant_habit_ids_#{habit.id}" %>
-			  <%= label_tag("plant_habit_ids_#{habit.id}", habit.habit ) %>
-			<% end %>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h6>Salinity Tolerance</h6>
-			<% @salinity_tolerances.each do |salinity_tolerance| %>
-			  <%= check_box_tag "plant[salinity_tolerance_ids][]", salinity_tolerance.id, checkFilter('salinity_tolerance_ids', salinity_tolerance.id, @filters), id: "plant_salinity_tolerance_ids_#{salinity_tolerance.id}" %>
-			  <%= label_tag("plant_salinity_tolerance_ids_#{salinity_tolerance.id}", salinity_tolerance.salinity_tolerance ) %>
-			<% end %>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
-
-	<div class="row">
-		<div class="small-12 columns">
-			<h6>Seaside Tolerance</h6>
-			<% @seaside_tolerances.each do |seaside_tolerance| %>
-			  <%= check_box_tag "plant[seaside_tolerance_ids][]", seaside_tolerance.id, checkFilter('seaside_tolerance_ids', seaside_tolerance.id, @filters), id: "plant_seaside_tolerance_ids_#{seaside_tolerance.id}" %>
-			  <%= label_tag("plant_seaside_tolerance_ids_#{seaside_tolerance.id}", seaside_tolerance.seaside_tolerance ) %>
-			<% end %>
-		</div><!--/.small-12-->
-	</div><!--/.row-->
+					<h6>Soil Moisture</h6>
+					<% @soil_moistures.each do |soil_moisture| %>
+					  <%= check_box_tag "plant[soil_moisture_ids][]", soil_moisture.id, checkFilter('soil_moisture_ids', soil_moisture.id, @filters), id: "plant_soil_moisture_ids_#{soil_moisture.id}" %>
+					  <%= label_tag("plant_soil_moisture_ids_#{soil_moisture.id}", soil_moisture.soil_moisture ) %>
+					<% end %>
 
 
-			<div class="row">
-				<div class="small-12 columns">
+					<h6>Landscape Application</h6>
+					<% @landscape_applications.each do |landscape_application| %>
+					  <%= check_box_tag "plant[landscape_application_ids][]", landscape_application.id, checkFilter('landscape_application_ids', landscape_application.id, @filters), id: "plant_landscape_application_ids_#{landscape_application.id}" %>
+					  <%= label_tag("plant_landscape_application_ids_#{landscape_application.id}", landscape_application.landscape_application ) %>
+					<% end %>
+
+
+					<h6>Landscape Use</h6>
+					<% @landscape_uses.each do |landscape_use| %>
+					  <%= check_box_tag "plant[landscape_use_ids][]", landscape_use.id, checkFilter('landscape_use_ids', landscape_use.id, @filters), id: "plant_landscape_use_ids_#{landscape_use.id}" %>
+					  <%= label_tag("plant_landscape_use_ids_#{landscape_use.id}", landscape_use.landscape_use ) %>
+					<% end %>
+
+
+					<h6>Shape</h6>
+					<% @shapes.each do |shape| %>
+					  <%= check_box_tag "plant[shape_ids][]", shape.id, checkFilter('shape_ids', shape.id, @filters), id: "plant_shape_ids_#{shape.id}" %>
+					  <%= label_tag("plant_shape_ids_#{shape.id}", shape.shape ) %>
+					<% end %>
+
+
+					<h6>Habit</h6>
+					<% @habits.each do |habit| %>
+					  <%= check_box_tag "plant[habit_ids][]", habit.id, checkFilter('habit_ids', habit.id, @filters), id: "plant_habit_ids_#{habit.id}" %>
+					  <%= label_tag("plant_habit_ids_#{habit.id}", habit.habit ) %>
+					<% end %>
+
+
+					<h6>Salinity Tolerance</h6>
+					<% @salinity_tolerances.each do |salinity_tolerance| %>
+					  <%= check_box_tag "plant[salinity_tolerance_ids][]", salinity_tolerance.id, checkFilter('salinity_tolerance_ids', salinity_tolerance.id, @filters), id: "plant_salinity_tolerance_ids_#{salinity_tolerance.id}" %>
+					  <%= label_tag("plant_salinity_tolerance_ids_#{salinity_tolerance.id}", salinity_tolerance.salinity_tolerance ) %>
+					<% end %>
+
+
+					<h6>Seaside Tolerance</h6>
+					<% @seaside_tolerances.each do |seaside_tolerance| %>
+					  <%= check_box_tag "plant[seaside_tolerance_ids][]", seaside_tolerance.id, checkFilter('seaside_tolerance_ids', seaside_tolerance.id, @filters), id: "plant_seaside_tolerance_ids_#{seaside_tolerance.id}" %>
+					  <%= label_tag("plant_seaside_tolerance_ids_#{seaside_tolerance.id}", seaside_tolerance.seaside_tolerance ) %>
+					<% end %>
+
+
 					<h6>Leaf Growth Colors</h6>
 					<div class="color-picker-container">
 						<% @colors_leaf_growth.each do |color| %>
@@ -134,10 +99,7 @@
 							</div>
 						<% end %>
 					</div>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
-			<div class="row">
-				<div class="small-12 columns">
+
 					<h6>Bark Colors</h6>
 					<div class="color-picker-container">
 						<% @colors_bark.each do |color| %>
@@ -147,10 +109,8 @@
 							</div>
 						<% end %>
 					</div>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
-			<div class="row">
-				<div class="small-12 columns">
+
+
 					<h6>Leaf Autumn Colors</h6>
 					<div class="color-picker-container">
 						<% @colors_leaf_autumn.each do |color| %>
@@ -160,10 +120,8 @@
 							</div>
 						<% end %>
 					</div>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
-			<div class="row">
-				<div class="small-12 columns">
+
+
 					<h6>Flower Colors</h6>
 					<div class="color-picker-container">
 						<% @colors_flower.each do |color| %>
@@ -173,10 +131,8 @@
 							</div>
 						<% end %>
 					</div>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
-			<div class="row">
-				<div class="small-12 columns">
+
+
 					<h6>Fruit Colors</h6>
 					<div class="color-picker-container">
 						<% @colors_fruit.each do |color| %>
@@ -186,22 +142,31 @@
 							</div>
 						<% end %>
 					</div>
-				</div><!--/.small-12-->
-			</div><!--/.row-->
+<% end %>
+		</div>
+		<div id="filter-submit">
 			<div class="row">
 				<div class="small-12 columns">
 					<br>
-					<%= submit_tag "filter", class: "success button tiny expand" %>
+					<input type="button" onclick="document.FilterForm.submit();" value="FIND SOME TREES..." class="success button tiny expand">
+					<%#= submit_tag "FIND SOME TREES...", class: "success button tiny expand" %>
+					<% if @filters.present? %><div style="padding-bottom: 1em;text-align:center; font-size: .75em;"><%= link_to root_path do %> clear all filters <% end %></div><% end %>
 				</div><!--/.small-12 small-centered-->
 			</div><!--/.row-->
-			
-		<% end %>
+		</div>
+		
 	</div>
 	<div id="index-list">
-		<div class="thumbnails">
-			<% @plants.each do |plant| %>
-				<%= render partial: 'shared/plant_thumbnail', locals: {plant: plant} %>
-			<% end %>
+		<% if @plants.present? %>
+			<div class="thumbnails">
+				<% @plants.each do |plant| %>
+					<%= render partial: 'shared/plant_thumbnail', locals: {plant: plant} %>
+				<% end %>
+			</div>
+		<% else %>
+		<div style="text-align:center;padding-top: 2em;">
+			<h3>Sorry! No trees match! <br>Try adjusting your choices</h3>
 		</div>
+		<% end %>
 	</div>
 </div>
