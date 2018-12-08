@@ -122,6 +122,7 @@ $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
 			}
 		}
 		#filter-submit {
+			background-color: $header-base-color;
 			@media screen and (min-width: 480px) {
 				grid-row: 2;
 			}
@@ -597,6 +598,7 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 		.plant-name {
 			font-style: italic;
 			font-weight: 400;
+			font-size: 1.25em;
 			color: black;
 			span {
 				background-color: $thumbnail-background;
@@ -606,7 +608,8 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 		}
 		.common-name {
 			font-style: italic;
-			font-weight: 100;
+			font-weight: 200;
+			font-size: 1.25em;
 			color: black;
 			span {
 				background-color: $thumbnail-background;
