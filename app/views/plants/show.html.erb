@@ -107,7 +107,16 @@
 		<div class="container">
 			<div class="attributes three-column">
 				<% if @plant.sunset_zones.exists? %>
-					<%= render partial: 'shared/attribute', locals: {attribute: @plant.sunset_zones, name: 'Sunset Zones', value: 'sunset_zone'} %>
+					<div class="attribute-block">
+						<div class="attribute-name">Sunset Zones</div>
+						<% @plant.display_sunset_zones.each do |zones| %>
+							<% if zones.count > 1 %>
+								<div class="attribute-value"><%= zones.first %> - <%= zones.last %></div>
+							<% else %>
+								<div class="attribute-value"><%= zones.first %></div>
+							<% end %>
+						<% end %>
+					</div>
 				<% end %>
 				<% if @plant.exposures.exists? %>
 					<%= render partial: 'shared/attribute', locals: {attribute: @plant.exposures, name: 'Exposure', value: 'exposure'} %>

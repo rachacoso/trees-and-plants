@@ -100,6 +100,9 @@ class Plant < ApplicationRecord
 			return false
 		end
 	end
+	def display_sunset_zones
+		self.sunset_zones.to_a.map(&:sunset_zone).slice_when { |prev, curr| curr != prev.next }.to_a
+	end
 	def size_category
 	end
 
