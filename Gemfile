@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'dropzonejs-rails'
 
 gem 'image_processing', '~> 1.2'
+gem "mini_magick"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

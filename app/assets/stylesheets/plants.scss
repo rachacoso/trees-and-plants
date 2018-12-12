@@ -41,6 +41,31 @@ $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
 
 	}
 }
+
+#wiki-header {
+	font-weight: 200;
+	span {
+		font-weight: 500;
+//		color: scale-color(black, $lightness: 45%);
+		color: black;
+	}
+	font-size: 20px;
+	color: black;
+	width: 50vw;
+	background: $header-secondary-color;
+
+	border-radius: 0px 30px 30px 0px;
+	text-align: right;
+	padding-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+}
+
 .index-container {
 	display: grid;
 	@media screen and (min-width: 480px) {
@@ -67,29 +92,6 @@ $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
 			grid-row: 1;
 		}
 		background-color: $header-base-color;
-		#wiki-header {
-			font-weight: 200;
-			span {
-				font-weight: 500;
-		//		color: scale-color(black, $lightness: 45%);
-				color: black;
-			}
-			font-size: 20px;
-			color: black;
-			width: 50vw;
-			background: $header-secondary-color;
-
-			border-radius: 0px 30px 30px 0px;
-			text-align: right;
-			padding-right: 20px;
-			margin-top: 10px;
-			margin-bottom: 10px;
-		    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-		       -moz-animation: fadein 1s; /* Firefox < 16 */
-		        -ms-animation: fadein 1s; /* Internet Explorer */
-		         -o-animation: fadein 1s; /* Opera < 12.1 */
-		            animation: fadein 1s;
-		}
 	}
 	#index-filters {
 		@media screen and (min-width: 480px) {
