@@ -13,29 +13,9 @@
 $header-secondary-color: #84bc7a;
 $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
 
-#wiki-header {
-	font-weight: 200;
-	span {
-		font-weight: 500;
-//		color: scale-color(black, $lightness: 45%);
-		color: black;
-	}
-	font-size: 20px;
-	color: black;
-	width: 50vw;
-	background: $header-secondary-color;
 
-	border-radius: 0px 30px 30px 0px;
-	text-align: right;
-	padding-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 1s; /* Firefox < 16 */
-        -ms-animation: fadein 1s; /* Internet Explorer */
-         -o-animation: fadein 1s; /* Opera < 12.1 */
-            animation: fadein 1s;
-}
+
+
 
 .hide-upload{
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -66,7 +46,7 @@ $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
 	@media screen and (min-width: 480px) {
 		height: 100vh;
 		grid-template-columns: 20% 1fr;
-		grid-template-rows: min-content 1fr;
+		grid-template-rows: min-content 1fr min-content;
 	}
 	@media screen and (max-width: 479px) {
 		grid-template-columns: 1fr;
@@ -87,12 +67,36 @@ $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
 			grid-row: 1;
 		}
 		background-color: $header-base-color;
+		#wiki-header {
+			font-weight: 200;
+			span {
+				font-weight: 500;
+		//		color: scale-color(black, $lightness: 45%);
+				color: black;
+			}
+			font-size: 20px;
+			color: black;
+			width: 50vw;
+			background: $header-secondary-color;
+
+			border-radius: 0px 30px 30px 0px;
+			text-align: right;
+			padding-right: 20px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+		       -moz-animation: fadein 1s; /* Firefox < 16 */
+		        -ms-animation: fadein 1s; /* Internet Explorer */
+		         -o-animation: fadein 1s; /* Opera < 12.1 */
+		            animation: fadein 1s;
+		}
 	}
 	#index-filters {
 		@media screen and (min-width: 480px) {
 			grid-column-start: 1;
 			grid-column-end: 2;
 			grid-row-start: 2;
+			grid-row-end: 3;
 			overflow: scroll;
 		}
 		@media screen and (max-width: 479px) {
@@ -139,6 +143,7 @@ $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
 			grid-column-start: 2;
 			grid-column-end: 3;
 			grid-row-start: 2;
+			grid-row-end: 3;
 			overflow: scroll;
 		}
 		@media screen and (max-width: 479px) {
@@ -170,6 +175,37 @@ $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
+	}
+	#index-footer {
+		grid-row-start: 3;
+		grid-row-end: 4;
+		grid-column-start: 1;
+		grid-column-end: 4;
+		background-color: $header-secondary-color;
+
+		#wiki-footer {
+			font-weight: 200;
+			span {
+				font-weight: 500;
+		//		color: scale-color(black, $lightness: 45%);
+				color: black;
+			}
+			font-size: 15px;
+			color: black;
+			width: 90vw;
+			background: $header-base-color;
+
+			border-radius: 0px 30px 30px 0px;
+			text-align: right;
+			padding-right: 20px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+		       -moz-animation: fadein 1s; /* Firefox < 16 */
+		        -ms-animation: fadein 1s; /* Internet Explorer */
+		         -o-animation: fadein 1s; /* Opera < 12.1 */
+		            animation: fadein 1s;
+		}
 	}
 }
 
