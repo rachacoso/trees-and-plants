@@ -641,6 +641,7 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 			font-weight: 400;
 			font-size: 1em;
 			color: black;
+
 			span {
 				background-color: $thumbnail-background;
 				padding-left: 10px;
@@ -648,6 +649,7 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 				span {
 					font-style: normal;
 					background: none;
+					padding: 0px;
 				}
 			}
 		}
