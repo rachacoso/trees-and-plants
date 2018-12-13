@@ -183,7 +183,7 @@ $header-base-color: scale-color($header-secondary-color, $lightness: 45%);
 		grid-row-end: 4;
 		grid-column-start: 1;
 		grid-column-end: 4;
-		background-color: $header-secondary-color;
+		background-color: white;
 
 		#wiki-footer {
 			font-weight: 200;
