@@ -723,5 +723,5 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 .silver { background-color: $silver !important; }
 .silver-silver-gray { background-color: $silver-silver-gray !important; }
 .variegated { background-color: $variegated !important; }
-.white { background-color: $white !important; }
+.white { background-color: $white !important; border: 0.5px solid $gray-light-gray; }
 .yellow { background-color: $yellow !important; }
