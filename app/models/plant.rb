@@ -76,7 +76,11 @@ class Plant < ApplicationRecord
 	end
 
 	def scientific_name
-		return "#{self.genus.capitalize} #{self.species}"
+		if self.species.present?
+			return "#{self.genus.capitalize} #{self.species}"
+		else
+			return self.genus.capitalize
+		end
 	end
 	def display_width
 		if self.width_min

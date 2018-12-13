@@ -530,6 +530,9 @@ h1.plant-name {
 	text-align: right;
 	font-style: italic;
 	font-weight: 400;
+	& #hybrid-name {
+		font-style: normal;
+	}
 	& #common-name {
 //		display: block;
 		font-weight: 100;
@@ -641,7 +644,11 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 			span {
 				background-color: $thumbnail-background;
 				padding-left: 10px;
-				padding-right: 10px;	
+				padding-right: 10px;
+				span {
+					font-style: normal;
+					background: none;
+				}
 			}
 		}
 		.common-name {

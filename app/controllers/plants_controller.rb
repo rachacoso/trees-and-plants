@@ -187,7 +187,8 @@ class PlantsController < ApplicationController
 		params.require(:plant).permit(
 
 		:genus, 
-		:species, 
+		:species,
+		:hybrid_name, 
 		:common_name,
 		:synonyms,
 		:additional_common_names,

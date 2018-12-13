@@ -30,6 +30,9 @@
 			</div>
 			<div id="front-grid-name">
 					<h1 class="plant-name"><%=@plant.scientific_name%>
+				<% if @plant.hybrid_name.present? %>
+				<span id="hybrid-name"><%=@plant.hybrid_name%></span>
+				<%end%>
 				<span id="common-name"> / <%=@plant.common_name%></span></h1>
 				<div class="description"><%= simple_format(@plant.description, {}, wrapper_tag: 'p') %></div>
 			</div>
