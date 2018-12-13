@@ -636,7 +636,7 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 		.plant-name {
 			font-style: italic;
 			font-weight: 400;
-			font-size: 1.25em;
+			font-size: 1em;
 			color: black;
 			span {
 				background-color: $thumbnail-background;
@@ -647,7 +647,7 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 		.common-name {
 			font-style: italic;
 			font-weight: 200;
-			font-size: 1.25em;
+			font-size: 1em;
 			color: black;
 			span {
 				background-color: $thumbnail-background;
@@ -673,7 +673,7 @@ $thumbnail-background: rgba(255,255,255, 0.75);
 		
 	}
 	&:hover {
-		.common-name, .plant-name { color: $blue-blue-green; }
+		.common-name, .plant-name { color: white; span {background-color: black;}}
 	}
 
 }
